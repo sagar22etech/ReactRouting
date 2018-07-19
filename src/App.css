@@ -1,0 +1,25 @@
+/* .App {
+  text-align: center;
+} */
+.navbar ul{
+  display: flex;
+}
+.navbar ul li{
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 12px;
+}
+.navbar ul li a{
+  text-decoration: none;
+  cursor: pointer;
+}
+.content-heading{
+  text-align: center;
+}
+.message-box {
+  list-style: none;
+  float: left;
+}
+.message-list{
+  padding: 10px;
+}
