@@ -5,7 +5,7 @@ import Contact from './contactus';
 import About from './aboutus';
 import NavBar from './navbar';
 import Message from './message';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 class App extends React.Component {
   BasicExample = () => (
     <Router>
@@ -15,11 +15,11 @@ class App extends React.Component {
         <Route path="/contactus" component={Contact} />
         <Route exact path="/message" component={Message} />
         <Route exact path="/message/:id" component={Message} />
-       </NavBar> 
+      </NavBar>
     </Router>
   );
   render() {
-   return <this.BasicExample/>
+    return <this.BasicExample />
   }
 }
 

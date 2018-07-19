@@ -18,7 +18,7 @@ export default class Message extends React.Component {
     messageDetails = (id) => {
         message.map((msg, i) => {
             console.log(id);
-            
+
             if (id === msg.id.toString()) {
                 const details = msg;
                 this.setState({ message: details })
@@ -32,7 +32,7 @@ export default class Message extends React.Component {
             <div className='row'>
                 <ul className='col-md-3'>
                     {message.map((data, i) =>
-                        <li key={data.id} className='message-list'> <Link to={`/message/message${data.id}`} id={data.id} onClick={(e) => this.onClick(e)}>Message:{data.title}<br/><small>From:{data.from}</small></Link></li>
+                        <li key={data.id} className='message-list'> <Link to={`/message/message${data.id}`} id={data.id} onClick={(e) => this.onClick(e)}>Message:{data.title}<br /><small>From:{data.from}</small></Link></li>
                     )}
                 </ul>
                 <MessageDetails onClick={this.state.message} />
