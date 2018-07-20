@@ -6,36 +6,40 @@ export default class Message extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            message: []
-        }
-        this.onClick = this.onClick.bind(this);
+        this.messageDetails = this.messageDetails.bind(this);
     }
-
-    onClick = (event) => {
-        this.messageDetails(event.target.id);
-    }
-    messageDetails = (id) => {
+    messageDetails = () => {
+        let id = this.props.match.params.id;
+        let data;
         message.map((msg, i) => {
-            console.log(id);
-
             if (id === msg.id.toString()) {
-                const details = msg;
-                this.setState({ message: details })
+                data = msg;
             }
         })
+        return data;
     }
     render() {
-
         return (<div>
             <div className='content-heading'><h1>Message</h1></div>
             <div className='row'>
                 <ul className='col-md-3'>
                     {message.map((data, i) =>
-                        <li key={data.id} className='message-list'> <Link to={`/message/message${data.id}`} id={data.id} onClick={(e) => this.onClick(e)}>Message:{data.title}<br /><small>From:{data.from}</small></Link></li>
+                        <li key={data.id}
+                            className='message-list'>
+                            <Link
+                                to={`/message/${data.id}`}
+                                id={data.id}
+                            >
+                                <div id={data.id}>
+                                    Message:{data.title}
+                                    <br />
+                                    <small>From:{data.from}</small>
+                                </div>
+                            </Link>
+                        </li>
                     )}
                 </ul>
-                <MessageDetails onClick={this.state.message} />
+                <MessageDetails data={this.messageDetails()} />
             </div>
         </div>);
     }
